@@ -12,34 +12,11 @@
         //連接伺服器端的socket.io
         // 1.client要求連線
         var socket = io.connect();
-        alert('3.client收到連線通知');
+        //alert('3.client收到連線通知');
         //socket.on('connect', function() {});
 
 
-        $('#sendSubmin').click(function() {
-            var nameVal = $('#nameMessage').val();
-            var writeVal = $('#writeMessage').val();
-
-            // 傳送更新資訊給自己
-            // 按下 BTN CLICK 後，
-            // 4. emit傳送 sendchat 這個事件，把 name 和 write
-            //    這兩個訊息，廣播給線上所有的 server，
-            //    第一個參數是名稱，第二個之後的參數是要傳給server的值
-            socket.emit('sendchat', {
-                "a":,
-                "b":,
-                "name": nameVal,
-                "write": writeVal
-            });
-            $('input').val('');
-            // element1.addEventListener('click',doSomething2,false)
-            // $("#element1").bind("click", doSomething2, false);
-            // var name = document.getElementById('nameMessage').value;
-            // var text = document.getElementById('message').value;
-            // document.getElementById('nameMessage').value = "";
-            // document.getElementById('message').value = "";
-            // }, false);
-        });
+        
         // 接收 key 值為 chat 的 socket，並傳入變數 username , data
         // 在 socket.on 等待 chat 事件，然後 server 會傳兩個值過來分別存在 username 和 data 這兩個變數中
         // 7.收到server的呼叫
@@ -65,16 +42,6 @@
 
 <body>
     <h1>Chat - Socekt.IO</h1>
-    <div>
-        <p>名字：
-            <input type="text" id="nameMessage" />
-        </p>
-        <p>訊息：
-            <input type="text" id="writeMessage" />
-        </p>
-    </div>
-    <br/>
-    <button type="button" id="sendSubmin">送出</button>
     <div id="output"></div>
 </body>
 
